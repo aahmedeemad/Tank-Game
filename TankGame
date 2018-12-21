@@ -1,0 +1,34 @@
+package tankgame;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JFrame;
+
+public class TankGame {
+    public static void main(String[] args) {
+        JFrame jf=new JFrame();
+        jf.setSize(600, 600);
+        jf.setTitle("Tank Game");
+        jf.setLocationRelativeTo(null);
+        
+        Targets mb=new Targets();
+        mb.Balls.add(new Ball());
+        mb.Balls.add(new Ball(100,100,20,Color.ORANGE));
+        mb.Balls.add(new Ball(120,120,15,Color.red));
+        mb.Balls.add(new Ball(140,140,10,Color.CYAN));
+        mb.Balls.add(new Ball(160,160,20,Color.ORANGE));
+        mb.Balls.add(new Ball(180,180,15,Color.red));
+        mb.Balls.add(new Ball(200,200,10,Color.CYAN));
+        mb.Balls.add(new Ball(220,220,20,Color.ORANGE));
+        mb.Balls.add(new Ball(240,240,15,Color.red));
+        mb.Balls.add(new Ball(260,260,10,Color.CYAN));
+        
+        jf.add(mb,BorderLayout.CENTER);
+        mb.setFocusable(true);
+        Thread t1=new Thread(mb);
+        t1.start();
+        
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setVisible(true);
+    }
+}
